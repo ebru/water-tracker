@@ -27,7 +27,6 @@ export default StyleSheet.create({
   },
   progress: {
     width: '100%',
-    height: '68%',
     backgroundColor: THEME.COLORS['color-primary-900'],
   },
   callToActionWrapper: {

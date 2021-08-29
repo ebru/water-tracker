@@ -13,7 +13,6 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: THEME.SPACING.L,
-    maxWidth: '40%',
   },
   count: {
     fontSize: wp(10),

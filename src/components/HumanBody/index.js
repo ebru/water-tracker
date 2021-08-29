@@ -17,7 +17,9 @@ const xml = `
 </svg>
 `
 
-const HumanBody = () => {
+const HumanBody = ({ data }) => {
+  const { dailyTotalWater, dailyGoal } = data
+
   return (
     <View style={styles.root}>
       <View>
@@ -31,11 +33,22 @@ const HumanBody = () => {
               preserveAspectRatio="none"
             />
           </View>
-          <View style={styles.progress} />
+          <View
+            style={[
+              styles.progress,
+              // eslint-disable-next-line react-native/no-inline-styles
+              {
+                height:
+                  dailyTotalWater >= dailyGoal
+                    ? '100%'
+                    : `${(dailyTotalWater / dailyGoal) * 100}%`,
+              },
+            ]}
+          />
         </View>
         <View style={styles.dailyGoalWrapper}>
           <View style={styles.flexContainer}>
-            <Text style={styles.dailyGoal}>3.5 L</Text>
+            <Text style={styles.dailyGoal}>{dailyGoal / 1000} L</Text>
             <TouchableOpacity onPress={() => null}>
               <Image
                 style={styles.pencilIcon}
