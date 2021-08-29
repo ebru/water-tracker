@@ -6,17 +6,14 @@ export default StyleSheet.create({
   },
   header: {
     width: '100%',
-    height: '25%',
-    backgroundColor: 'pink',
+    height: '20%',
   },
   body: {
     width: '100%',
-    height: '50%',
-    backgroundColor: 'lightblue',
+    height: '60%',
   },
   amount: {
     width: '100%',
-    height: '25%',
-    backgroundColor: 'grey',
+    height: '20%',
   },
 })

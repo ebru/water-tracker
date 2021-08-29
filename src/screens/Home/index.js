@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { MainLayout } from '@app/layouts'
+import { Amount, CountBadge, HumanBody } from '@app/components'
 import styles from './styles'
 
 const HomeScreen = () => {
@@ -8,13 +9,13 @@ const HomeScreen = () => {
     <MainLayout>
       <View style={styles.content}>
         <View style={styles.header}>
-          <Text>Header</Text>
+          <CountBadge />
         </View>
         <View style={styles.body}>
-          <Text>Body</Text>
+          <HumanBody />
         </View>
         <View style={styles.amount}>
-          <Text>Amount</Text>
+          <Amount />
         </View>
       </View>
     </MainLayout>
