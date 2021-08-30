@@ -1,4 +1,5 @@
 export const THEME = {
+  GLOBAL_RADIUS: 10,
   SPACING: {
     XS: 4,
     S: 8,
@@ -15,7 +16,7 @@ export const THEME = {
     'color-primary-100': '#E1FBFD',
     'color-primary-200': '#C5F3FC',
     'color-primary-300': '#A6E6F8',
-    'color-primary-400': '#8ED5F2',
+    'color-primary-400': '#69BDEA',
     'color-primary-500': '#53BFEF',
     'color-primary-600': '#4C95C9',
     'color-primary-700': '#3471A8',

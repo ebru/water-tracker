@@ -29,6 +29,8 @@ export const updateStoreAsync = async updatedData => {
 export const initializeStore = async () => {
   const currentStore = await getStoreAsync()
 
+  console.log('DateUtil.tomorrow()', DateUtil.tomorrow())
+
   const initialStore = {
     [DateUtil.today()]: {
       dailyTotalWater: 0,

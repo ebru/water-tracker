@@ -17,7 +17,7 @@ const xml = `
 </svg>
 `
 
-const HumanBody = ({ data }) => {
+const HumanBody = ({ data, onEditDailyGoalPress }) => {
   const { dailyTotalWater, dailyGoal } = data
 
   return (
@@ -49,7 +49,7 @@ const HumanBody = ({ data }) => {
         <View style={styles.dailyGoalWrapper}>
           <View style={styles.flexContainer}>
             <Text style={styles.dailyGoal}>{dailyGoal / 1000} L</Text>
-            <TouchableOpacity onPress={() => null}>
+            <TouchableOpacity onPress={onEditDailyGoalPress}>
               <Image
                 style={styles.pencilIcon}
                 source={require('src/assets/icons/pencil.png')}
@@ -58,7 +58,11 @@ const HumanBody = ({ data }) => {
           </View>
         </View>
         <View style={styles.callToActionWrapper}>
-          <Text style={styles.callToAction}>Nice work! Keep it up!</Text>
+          <Text style={styles.callToAction}>
+            {dailyTotalWater >= dailyGoal
+              ? 'Nice work! Keep it up!'
+              : 'Drink more water!'}
+          </Text>
         </View>
       </View>
     </View>

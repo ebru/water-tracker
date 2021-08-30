@@ -7,14 +7,12 @@ export const getFormattedCountData = data => {
     achievedGoalDays: get(data, 'achievedGoalDays', '-'),
   }
 }
-
 export const getFormattedBodyData = data => {
   return {
     dailyTotalWater: get(data, [DateUtil.today(), 'dailyTotalWater']),
     dailyGoal: get(data, 'dailyGoal'),
   }
 }
-
 export const getUpdatedAddWaterAmountData = (data, amount) => {
   const currentDailyTotalWater = data[DateUtil.today()].dailyTotalWater
   const isAchieved = data[DateUtil.today()].achieved
@@ -32,7 +30,6 @@ export const getUpdatedAddWaterAmountData = (data, amount) => {
     },
   }
 }
-
 export const getUpdatedRemoveWaterAmountData = (data, amount) => {
   const currentDailyTotalWater = data[DateUtil.today()].dailyTotalWater
   const isAchieved = data[DateUtil.today()].achieved
@@ -49,6 +46,31 @@ export const getUpdatedRemoveWaterAmountData = (data, amount) => {
         currentDailyTotalWater - amount >= 0
           ? currentDailyTotalWater - amount
           : 0,
+      achieved: willAchieve ? true : false,
+    },
+  }
+}
+export const getUpdatedDailyGoalData = (data, dailyGoal) => {
+  const currentDailyTotalWater = data[DateUtil.today()].dailyTotalWater
+  const isAchieved = data[DateUtil.today()].achieved
+  const willAchieve = currentDailyTotalWater >= dailyGoal
+
+  const getAchievedGoalDays = () => {
+    if (isAchieved && !willAchieve) {
+      return data.achievedGoalDays - 1
+    }
+    if (!isAchieved && willAchieve) {
+      return data.achievedGoalDays + 1
+    }
+    return data.achievedGoalDays
+  }
+
+  return {
+    ...data,
+    achievedGoalDays: getAchievedGoalDays(),
+    dailyGoal,
+    [DateUtil.today()]: {
+      ...data[DateUtil.today()],
       achieved: willAchieve ? true : false,
     },
   }
