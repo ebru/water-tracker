@@ -35,10 +35,6 @@ const HomeScreen = () => {
     getStoreData()
   }, [])
 
-  useEffect(() => {
-    console.log('data', data)
-  }, [data])
-
   const onAddWaterAmount = async amount => {
     const updatedData = getUpdatedAddWaterAmountData(data, amount)
     updateStateAndStore(updatedData)
