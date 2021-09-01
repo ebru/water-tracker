@@ -1,25 +1,43 @@
 import React, { useState } from 'react'
+import HorizontalPicker from '@vseslav/react-native-horizontal-picker'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { wp } from '@app/utils/responsive'
 import styles from './styles'
 
-const INITIAL_AMOUNT = 250
+const AMOUNTS = [150, 250, 350]
+const INITIAL_AMOUNT_INDEX = 1
 
 const Amount = ({ onAddWaterAmount, onRemoveWaterAmount }) => {
-  const [amount] = useState(INITIAL_AMOUNT)
+  const [amountIndex, setAmountIndex] = useState(INITIAL_AMOUNT_INDEX)
 
   const handleAddAmount = async () => {
-    onAddWaterAmount(amount)
+    onAddWaterAmount(AMOUNTS[amountIndex])
   }
   const handleRemoveAmount = async () => {
-    onRemoveWaterAmount(amount)
+    onRemoveWaterAmount(AMOUNTS[amountIndex])
+  }
+
+  const renderAmountItem = (item, index) => {
+    return (
+      <View style={styles.amountItem}>
+        <Text
+          style={[styles.amount, index === amountIndex && styles.activeAmount]}>
+          {item} ml
+        </Text>
+      </View>
+    )
   }
 
   return (
     <View style={styles.root}>
       <View style={styles.amountWrapper}>
-        <Text style={styles.amount}>150 ml</Text>
-        <Text style={[styles.amount, styles.activeAmount]}>250 ml</Text>
-        <Text style={styles.amount}>350 ml</Text>
+        <HorizontalPicker
+          data={AMOUNTS}
+          renderItem={renderAmountItem}
+          itemWidth={wp(30)}
+          defaultIndex={INITIAL_AMOUNT_INDEX}
+          onChange={setAmountIndex}
+        />
       </View>
       <View style={styles.addAmount}>
         <TouchableOpacity onPress={handleRemoveAmount}>

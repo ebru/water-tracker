@@ -1396,6 +1396,11 @@
     "@typescript-eslint/types" "4.29.2"
     eslint-visitor-keys "^2.0.0"
 
+"@vseslav/react-native-horizontal-picker@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vseslav/react-native-horizontal-picker/-/react-native-horizontal-picker-0.1.1.tgz#748b4cd287988de5e4ff76e2a6454c43e2d37478"
+  integrity sha512-fwnl4NRFxZkTAdLGrxHprsGAun221Q5pMkUyXCPxOBqE1jxDUfCLhhdywT4+KKIOqEx3zfOE1ZZZw45drCcADA==
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"

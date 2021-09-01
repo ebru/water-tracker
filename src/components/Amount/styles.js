@@ -18,6 +18,10 @@ export default StyleSheet.create({
     fontSize: wp(6.5),
     color: 'white',
     opacity: 0.5,
+    textAlign: 'center',
+  },
+  amountItem: {
+    width: wp(30),
   },
   activeAmount: {
     opacity: 1,
